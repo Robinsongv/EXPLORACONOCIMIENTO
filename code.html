@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Conocimiento Futurista</title>
+<title>Conocimiento Futurista - Admin</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto:wght@400&display=swap');
 
@@ -16,8 +16,8 @@
 
   body {
     font-family: 'Roboto', sans-serif;
-    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
-    color: #d0f0ff;
+    background: #ffffff;
+    color: #000000;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -25,40 +25,46 @@
   }
 
   header {
-    background: rgba(10, 25, 40, 0.85);
-    backdrop-filter: blur(8px);
+    background: #f0f0f0;
     padding: 1rem 2rem;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    border-bottom: 2px solid #00fff7;
+    border-bottom: 2px solid #000000;
     position: sticky;
     top: 0;
     z-index: 100;
   }
 
+  #logo {
+    width: 40px;
+    height: 40px;
+    margin-right: 12px;
+  }
+
+  .header-left {
+    display: flex;
+    align-items: center;
+  }
+
   h1 {
     font-family: 'Orbitron', sans-serif;
-    font-weight: 500;
+    font-weight: 700;
     font-size: 1.8rem;
-    color: #00fff7;
-    letter-spacing: 0.12em;
-    text-shadow:
-       0 0 8px #00fff7,
-       0 0 12px #00fff7;
+    color: #000000;
+    letter-spacing: 0.05em;
   }
 
   nav a {
-    color: #a6e3ff;
+    color: #000000;
     text-decoration: none;
     margin-left: 1.5rem;
-    font-weight: 500;
-    letter-spacing: 0.05em;
+    font-weight: 400;
+    letter-spacing: 0.02em;
     transition: color 0.3s ease;
   }
   nav a:hover, nav a.active {
-    color: #00fff7;
-    text-shadow: 0 0 6px #00fff7;
+    color: #555555;
   }
 
   main {
@@ -72,20 +78,19 @@
 
   section {
     margin-bottom: 3rem;
-    background: rgba(10, 20, 30, 0.7);
+    background: #fafafa;
     padding: 1.5rem 2rem;
-    border-radius: 12px;
-    box-shadow:
-      0 0 12px #00fff7aa,
-      inset 0 0 5px #00fff7bb;
+    border-radius: 8px;
+    box-shadow: 0 0 8px rgba(0,0,0,0.1);
   }
 
   section h2 {
     font-family: 'Orbitron', sans-serif;
-    color: #00fff7;
+    color: #000000;
     margin-bottom: 1rem;
+    font-weight: 700;
     font-size: 1.6rem;
-    border-bottom: 1px solid #00fff7;
+    border-bottom: 1px solid #000000;
     padding-bottom: 0.3rem;
   }
 
@@ -96,46 +101,43 @@
   }
   label {
     margin-bottom: 0.5rem;
-    font-weight: bold;
-    color: #89e4fc;
+    font-weight: 700;
+    color: #000000;
   }
-  select, input[type="text"], textarea {
-    border-radius: 8px;
-    border: none;
+  select, input[type="text"], textarea, input[type="file"], input[type="password"], input[type="email"] {
+    border-radius: 6px;
+    border: 1px solid #ccc;
     padding: 0.6rem 0.8rem;
     font-size: 1rem;
     margin-bottom: 1rem;
     outline: none;
     font-family: 'Roboto', sans-serif;
+    color: #000000;
+    background-color: #fff;
   }
-  select {
-    background-color: #022533;
-    color: #a6e3ff;
-  }
-  input[type="text"], textarea {
-    background-color: #011c27;
-    color: #d0f0ff;
-    resize: vertical;
+  select:focus, input:focus, textarea:focus {
+    border-color: #333;
+    box-shadow: 0 0 5px #777;
   }
   textarea {
     min-height: 80px;
+    resize: vertical;
   }
   button {
     align-self: flex-start;
-    background: #00fff7;
+    background: #000000;
     border: none;
     padding: 0.8rem 1.6rem;
     font-weight: 700;
     font-family: 'Orbitron', sans-serif;
     font-size: 1rem;
-    color: #003338;
-    border-radius: 12px;
+    color: #ffffff;
+    border-radius: 8px;
     cursor: pointer;
-    box-shadow: 0 0 12px #00fff7cc;
     transition: background-color 0.3s ease;
   }
   button:hover {
-    background-color: #00d7c7;
+    background-color: #333333;
   }
 
   /* Content cards */
@@ -146,26 +148,40 @@
   }
 
   .card {
-    background: #021b27;
+    background: #ffffff;
     padding: 1rem;
-    border-radius: 12px;
-    box-shadow: 0 0 12px #00fff780;
+    border-radius: 8px;
+    box-shadow: 0 0 6px rgba(0,0,0,0.1);
     transition: transform 0.25s ease;
   }
   .card:hover {
     transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
   }
   .card h3 {
     font-family: 'Orbitron', sans-serif;
-    color: #00fff7;
-    margin-bottom: 0.6rem;
+    color: #000000;
+    margin-bottom: 0.4rem;
+    font-weight: 700;
     font-size: 1.2rem;
     word-break: break-word;
   }
   .card p {
     font-size: 0.9rem;
-    color: #b4e7ff;
+    color: #222222;
     white-space: pre-wrap;
+  }
+  .card img {
+    max-width: 100%;
+    margin-top: 0.5rem;
+    border-radius: 4px;
+  }
+  .card .pdf-link {
+    margin-top: 0.5rem;
+    display: inline-block;
+    color: #0000ee;
+    text-decoration: underline;
+    cursor: pointer;
   }
 
   /* Footer */
@@ -173,8 +189,10 @@
   footer {
     text-align: center;
     padding: 1rem;
-    color: #488ea6;
+    color: #000000;
+    font-weight: 400;
     font-size: 0.9rem;
+    border-top: 1px solid #ccc;
   }
 
   /* Responsive */
@@ -192,19 +210,54 @@
       margin-bottom: 1.5rem;
     }
   }
+
+  /* Login Modal */
+  #login-modal {
+    display: none;
+    position: fixed;
+    z-index: 2000;
+    top: 0; left: 0; width: 100vw; height: 100vh;
+    background: rgba(0,0,0,0.5);
+    justify-content: center;
+    align-items: center;
+  }
+  #login-modal.active {
+    display: flex;
+  }
+  #login-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 26px rgba(0,0,0,0.2);
+    width: 320px;
+    max-width: 90%;
+  }
+  #login-box h2 {
+    margin-bottom: 1.5rem;
+    color: #000;
+    font-family: 'Orbitron', sans-serif;
+    text-align: center;
+  }
 </style>
 </head>
 <body>
 
 <header>
-  <h1>EXPLORA CONOCIMIENTO</h1>
+  <div class="header-left">
+    <!-- Simple icon representing knowledge: an open book SVG -->
+    <svg id="logo" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" >
+      <path d="M2 8h26v48H2zM36 8h26v48H36z"/>
+      <path d="M2 8s14 6 26 0v48s-14-6-26 0V8zM36 8s14 6 26 0v48s-14-6-26 0V8z"/>
+    </svg>
+    <h1>EXPLORA CONOCIMIENTO</h1>
+  </div>
   <nav>
     <a href="#historia" class="nav-link active" data-section="historia">Historia</a>
     <a href="#arte" class="nav-link" data-section="arte">Arte</a>
     <a href="#espacio" class="nav-link" data-section="espacio">Espacio</a>
     <a href="#climatologia" class="nav-link" data-section="climatologia">Climatología</a>
     <a href="#noticias" class="nav-link" data-section="noticias">Noticias</a>
-    <a href="#subir" class="nav-link" data-section="subir">Subir Contenido</a>
+    <a href="#subir" class="nav-link" data-section="subir" id="nav-subir" style="display:none;">Subir Contenido</a>
   </nav>
 </header>
 
@@ -212,37 +265,27 @@
 
   <section id="historia" class="content-section" data-section="historia">
     <h2>Historia</h2>
-    <div class="content-list" id="historia-list">
-      <!-- cards de historia cargados aquí -->
-    </div>
+    <div class="content-list" id="historia-list"></div>
   </section>
 
   <section id="arte" class="content-section" data-section="arte" style="display:none;">
     <h2>Arte</h2>
-    <div class="content-list" id="arte-list">
-      <!-- cards de arte cargados aquí -->
-    </div>
+    <div class="content-list" id="arte-list"></div>
   </section>
 
   <section id="espacio" class="content-section" data-section="espacio" style="display:none;">
     <h2>Cosmos y Espacio</h2>
-    <div class="content-list" id="espacio-list">
-      <!-- cards de espacio cargados aquí -->
-    </div>
+    <div class="content-list" id="espacio-list"></div>
   </section>
 
   <section id="climatologia" class="content-section" data-section="climatologia" style="display:none;">
     <h2>Climatología</h2>
-    <div class="content-list" id="climatologia-list">
-      <!-- cards de climatología cargados aquí -->
-    </div>
+    <div class="content-list" id="climatologia-list"></div>
   </section>
 
   <section id="noticias" class="content-section" data-section="noticias" style="display:none;">
     <h2>Noticias</h2>
-    <div class="content-list" id="noticias-list">
-      <!-- cards de noticias cargados aquí -->
-    </div>
+    <div class="content-list" id="noticias-list"></div>
   </section>
 
   <section id="subir" class="content-section" data-section="subir" style="display:none;">
@@ -264,19 +307,50 @@
       <label for="content">Contenido (texto):</label>
       <textarea id="content" name="content" placeholder="Escribe o pega el texto aquí..." required></textarea>
 
+      <label for="image">Subir imagen (opcional, formatos: jpg, png, gif):</label>
+      <input type="file" id="image" name="image" accept="image/*" />
+
+      <label for="pdf">Subir archivo PDF (opcional):</label>
+      <input type="file" id="pdf" name="pdf" accept="application/pdf" />
+
       <button type="submit">Subir contenido</button>
     </form>
   </section>
 </main>
 
 <footer>
-  &copy; 2024 Explora Conocimiento. Diseño futurista y experiencia acogedora.
+  © 2025 Exploratuconocimiento
 </footer>
 
+<!-- Login Modal -->
+<div id="login-modal">
+  <div id="login-box">
+    <h2>Ingreso de Administrador</h2>
+    <form id="login-form">
+      <label for="username">Usuario:</label>
+      <input type="text" id="username" name="username" required autocomplete="off" />
+      <label for="password">Contraseña:</label>
+      <input type="password" id="password" name="password" required autocomplete="off" />
+      <button type="submit">Ingresar</button>
+    </form>
+  </div>
+</div>
+
 <script>
-  // Variables para la navegación
-  const navLinks = document.querySelectorAll('nav a');
+  // Login credentials hardcoded (puedes cambiarlo)
+  const ADMIN_USER = 'admin';
+  const ADMIN_PASS = 'tucontraseña';
+
+  // DOM Elements
+  const loginModal = document.getElementById('login-modal');
+  const loginForm = document.getElementById('login-form');
+  const navSubir = document.getElementById('nav-subir');
+  const subirSection = document.getElementById('subir');
+
+  // Navigation and sections
+  const navLinks = document.querySelectorAll('nav a:not(#nav-subir)');
   const sections = document.querySelectorAll('.content-section');
+  const allSectionsNames = ['historia','arte','espacio','climatologia','noticias','subir'];
 
   function setActiveSection(sectionName) {
     sections.forEach(section => {
@@ -285,6 +359,10 @@
     navLinks.forEach(link => {
       link.classList.toggle('active', link.dataset.section === sectionName);
     });
+    // También para subir link si visible
+    if (navSubir.style.display !== 'none') {
+      navSubir.classList.toggle('active', navSubir.dataset.section === sectionName);
+    }
   }
 
   navLinks.forEach(link => {
@@ -296,16 +374,17 @@
     });
   });
 
-  // Mostrar la sección según el hash o por defecto 'historia'
-  let initialSection = window.location.hash.substring(1);
-  if (!initialSection || !['historia','arte','espacio','climatologia','noticias','subir'].includes(initialSection)) {
-    initialSection = 'historia';
-  }
-  setActiveSection(initialSection);
+  navSubir.addEventListener('click', e => {
+    e.preventDefault();
+    setActiveSection('subir');
+    history.pushState(null, '', '#subir');
+  });
 
-  // Guardar y cargar contenidos desde localStorage
+  // LocalStorage key for content and login session
   const STORAGE_KEY = 'explora_conocimiento_data';
+  const LOGIN_KEY = 'explora_admin_logged';
 
+  // Load content data from storage
   function loadContentFromStorage() {
     const dataStr = localStorage.getItem(STORAGE_KEY);
     if (!dataStr) return {};
@@ -317,32 +396,38 @@
     }
   }
 
+  // Save content data to storage
   function saveContentToStorage(data) {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
   }
 
-  function addContentCard(category, title, content) {
-    const container = document.getElementById(category + '-list');
-    if (!container) return;
-
-    const card = document.createElement('div');
-    card.className = 'card';
-    const safeTitle = escapeHtml(title);
-    const safeContent = escapeHtml(content);
-
-    card.innerHTML = `
-      <h3>${safeTitle}</h3>
-      <p>${safeContent}</p>
-    `;
-    container.prepend(card); // Añadir al inicio
-  }
-
+  // Escape HTML utility
   function escapeHtml(text) {
     const div = document.createElement('div');
     div.textContent = text;
     return div.innerHTML;
   }
 
+  // Render content cards including image or PDF if exists
+  function addContentCard(category, title, content, imgDataURL, pdfDataURL) {
+    const container = document.getElementById(category + '-list');
+    if (!container) return;
+
+    const card = document.createElement('div');
+    card.className = 'card';
+
+    let html = `<h3>${escapeHtml(title)}</h3><p>${escapeHtml(content)}</p>`;
+    if (imgDataURL) {
+      html += `<img src="${imgDataURL}" alt="Imagen subida" />`;
+    }
+    if (pdfDataURL) {
+      html += `<a href="${pdfDataURL}" target="_blank" class="pdf-link" title="Abrir PDF">Archivo PDF</a>`;
+    }
+    card.innerHTML = html;
+    container.prepend(card); // Añadir al inicio
+  }
+
+  // Render all content from storage
   function renderAllContent() {
     const data = loadContentFromStorage();
     ['historia','arte','espacio','climatologia','noticias'].forEach(cat => {
@@ -350,46 +435,143 @@
       container.innerHTML = '';
       if (data[cat]) {
         data[cat].forEach(entry => {
-          addContentCard(cat, entry.title, entry.content);
+          addContentCard(cat, entry.title, entry.content, entry.image || null, entry.pdf || null);
         });
       }
     });
   }
 
-  // On form submit
-  const form = document.getElementById('upload-form');
-  form.addEventListener('submit', e => {
+  // Check login state
+  function isLoggedIn() {
+    return sessionStorage.getItem(LOGIN_KEY) === 'true';
+  }
+
+  // Show or hide admin section & nav
+  function updateUIByLogin() {
+    const logged = isLoggedIn();
+    navSubir.style.display = logged ? 'inline-block' : 'none';
+    // Si está logueado y la URL es #subir, mostramos sección, si no, mostrarnos historia por defecto
+    const hash = window.location.hash.substring(1);
+    if (logged) {
+      if (hash === 'subir') {
+        setActiveSection('subir');
+      } else if (allSectionsNames.includes(hash)) {
+        setActiveSection(hash);
+      } else {
+        setActiveSection('historia');
+      }
+      loginModal.classList.remove('active');
+    } else {
+      // Mostrar login
+      loginModal.classList.add('active');
+      // Mostrar solo secciones excepto "subir"
+      if (allSectionsNames.includes(hash) && hash !== 'subir') {
+        setActiveSection(hash);
+      } else {
+        setActiveSection('historia');
+      }
+    }
+  }
+
+  // Handle login form submit
+  loginForm.addEventListener('submit', e => {
+    e.preventDefault();
+    const user = loginForm.username.value.trim();
+    const pass = loginForm.password.value.trim();
+
+    if (user === ADMIN_USER && pass === ADMIN_PASS) {
+      sessionStorage.setItem(LOGIN_KEY, 'true');
+      loginForm.reset();
+      updateUIByLogin();
+      alert('Ingreso exitoso. Ya puedes subir contenido.');
+    } else {
+      alert('Usuario o contraseña incorrectos.');
+    }
+  });
+
+  // Handle form submit to upload
+  const uploadForm = document.getElementById('upload-form');
+  uploadForm.addEventListener('submit', async e => {
     e.preventDefault();
 
-    const category = form.category.value;
-    const title = form.title.value.trim();
-    const content = form.content.value.trim();
+    const category = uploadForm.category.value;
+    const title = uploadForm.title.value.trim();
+    const content = uploadForm.content.value.trim();
 
     if (!category || !title || !content) {
-      alert('Por favor, rellena todos los campos.');
+      alert('Por favor, rellena todos los campos obligatorios.');
       return;
+    }
+
+    // Handle image file (only one)
+    const imageFile = uploadForm.image.files[0];
+    let imageDataURL = null;
+    if (imageFile) {
+      if (!imageFile.type.startsWith('image/')) {
+        alert('El archivo de imagen debe ser un archivo de imagen válido.');
+        return;
+      }
+      imageDataURL = await readFileAsDataURL(imageFile);
+    }
+
+    // Handle PDF file (only one)
+    const pdfFile = uploadForm.pdf.files[0];
+    let pdfDataURL = null;
+    if (pdfFile) {
+      if (pdfFile.type !== 'application/pdf') {
+        alert('El archivo PDF debe ser un archivo con formato PDF válido.');
+        return;
+      }
+      pdfDataURL = await readFileAsDataURL(pdfFile);
     }
 
     let data = loadContentFromStorage();
     if (!data[category]) data[category] = [];
 
-    data[category].unshift({ title, content });
+    data[category].unshift({
+      title,
+      content,
+      image: imageDataURL,
+      pdf: pdfDataURL
+    });
+
+    // Save
     saveContentToStorage(data);
 
-    form.reset();
+    uploadForm.reset();
     alert('Contenido subido con éxito.');
+    renderAllContent();
 
-    // Actualizar la vista si el usuario está viendo la categoría cargada
-    if (document.querySelector('.nav-link.active').dataset.section === category) {
-      renderAllContent();
-    }
+    // Cambiar sección a la que se añadió contenido para ver el resultado
+    setActiveSection(category);
+    history.pushState(null, '', `#${category}`);
   });
 
-  // Inicializar la visualización de contenido
+  // Utilidad leer archivo como DataURL (base64)
+  function readFileAsDataURL(file) {
+    return new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(reader.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
+  }
+
+  // Inicialización página
+  updateUIByLogin();
   renderAllContent();
+
+  // Manejo navegación para popstate (back/forward)
+  window.addEventListener('popstate', () => {
+    const hash = window.location.hash.substring(1);
+    if (allSectionsNames.includes(hash)) {
+      setActiveSection(hash);
+    } else {
+      setActiveSection('historia');
+    }
+  });
 
 </script>
 
 </body>
 </html>
-
