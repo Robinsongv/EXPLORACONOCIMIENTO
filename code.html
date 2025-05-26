@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Conocimiento Futurista</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500&family=Roboto:wght@400&display=swap');
+
+  /* Reset some default styles */
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    color: #d0f0ff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    scroll-behavior: smooth;
+  }
+
+  header {
+    background: rgba(10, 25, 40, 0.85);
+    backdrop-filter: blur(8px);
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid #00fff7;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 500;
+    font-size: 1.8rem;
+    color: #00fff7;
+    letter-spacing: 0.12em;
+    text-shadow:
+       0 0 8px #00fff7,
+       0 0 12px #00fff7;
+  }
+
+  nav a {
+    color: #a6e3ff;
+    text-decoration: none;
+    margin-left: 1.5rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    transition: color 0.3s ease;
+  }
+  nav a:hover, nav a.active {
+    color: #00fff7;
+    text-shadow: 0 0 6px #00fff7;
+  }
+
+  main {
+    flex: 1;
+    padding: 2rem;
+    max-width: 1000px;
+    margin: 0 auto 3rem auto;
+    font-size: 1rem;
+    line-height: 1.6;
+  }
+
+  section {
+    margin-bottom: 3rem;
+    background: rgba(10, 20, 30, 0.7);
+    padding: 1.5rem 2rem;
+    border-radius: 12px;
+    box-shadow:
+      0 0 12px #00fff7aa,
+      inset 0 0 5px #00fff7bb;
+  }
+
+  section h2 {
+    font-family: 'Orbitron', sans-serif;
+    color: #00fff7;
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+    border-bottom: 1px solid #00fff7;
+    padding-bottom: 0.3rem;
+  }
+
+  /* Form Styles */
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  label {
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #89e4fc;
+  }
+  select, input[type="text"], textarea {
+    border-radius: 8px;
+    border: none;
+    padding: 0.6rem 0.8rem;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    outline: none;
+    font-family: 'Roboto', sans-serif;
+  }
+  select {
+    background-color: #022533;
+    color: #a6e3ff;
+  }
+  input[type="text"], textarea {
+    background-color: #011c27;
+    color: #d0f0ff;
+    resize: vertical;
+  }
+  textarea {
+    min-height: 80px;
+  }
+  button {
+    align-self: flex-start;
+    background: #00fff7;
+    border: none;
+    padding: 0.8rem 1.6rem;
+    font-weight: 700;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1rem;
+    color: #003338;
+    border-radius: 12px;
+    cursor: pointer;
+    box-shadow: 0 0 12px #00fff7cc;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background-color: #00d7c7;
+  }
+
+  /* Content cards */
+  .content-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+    gap: 1rem;
+  }
+
+  .card {
+    background: #021b27;
+    padding: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 0 12px #00fff780;
+    transition: transform 0.25s ease;
+  }
+  .card:hover {
+    transform: translateY(-4px);
+  }
+  .card h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #00fff7;
+    margin-bottom: 0.6rem;
+    font-size: 1.2rem;
+    word-break: break-word;
+  }
+  .card p {
+    font-size: 0.9rem;
+    color: #b4e7ff;
+    white-space: pre-wrap;
+  }
+
+  /* Footer */
+
+  footer {
+    text-align: center;
+    padding: 1rem;
+    color: #488ea6;
+    font-size: 0.9rem;
+  }
+
+  /* Responsive */
+
+  @media (max-width: 600px) {
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    nav a {
+      margin: 0.3rem 1rem 0 0;
+    }
+    main {
+      padding: 1rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>EXPLORA CONOCIMIENTO</h1>
+  <nav>
+    <a href="#historia" class="nav-link active" data-section="historia">Historia</a>
+    <a href="#arte" class="nav-link" data-section="arte">Arte</a>
+    <a href="#espacio" class="nav-link" data-section="espacio">Espacio</a>
+    <a href="#climatologia" class="nav-link" data-section="climatologia">Climatología</a>
+    <a href="#noticias" class="nav-link" data-section="noticias">Noticias</a>
+    <a href="#subir" class="nav-link" data-section="subir">Subir Contenido</a>
+  </nav>
+</header>
+
+<main>
+
+  <section id="historia" class="content-section" data-section="historia">
+    <h2>Historia</h2>
+    <div class="content-list" id="historia-list">
+      <!-- cards de historia cargados aquí -->
+    </div>
+  </section>
+
+  <section id="arte" class="content-section" data-section="arte" style="display:none;">
+    <h2>Arte</h2>
+    <div class="content-list" id="arte-list">
+      <!-- cards de arte cargados aquí -->
+    </div>
+  </section>
+
+  <section id="espacio" class="content-section" data-section="espacio" style="display:none;">
+    <h2>Cosmos y Espacio</h2>
+    <div class="content-list" id="espacio-list">
+      <!-- cards de espacio cargados aquí -->
+    </div>
+  </section>
+
+  <section id="climatologia" class="content-section" data-section="climatologia" style="display:none;">
+    <h2>Climatología</h2>
+    <div class="content-list" id="climatologia-list">
+      <!-- cards de climatología cargados aquí -->
+    </div>
+  </section>
+
+  <section id="noticias" class="content-section" data-section="noticias" style="display:none;">
+    <h2>Noticias</h2>
+    <div class="content-list" id="noticias-list">
+      <!-- cards de noticias cargados aquí -->
+    </div>
+  </section>
+
+  <section id="subir" class="content-section" data-section="subir" style="display:none;">
+    <h2>Subir Nuevo Contenido</h2>
+    <form id="upload-form">
+      <label for="category">Categoría:</label>
+      <select id="category" name="category" required>
+        <option value="" disabled selected>Seleccione una categoría</option>
+        <option value="historia">Historia</option>
+        <option value="arte">Arte</option>
+        <option value="espacio">Espacio</option>
+        <option value="climatologia">Climatología</option>
+        <option value="noticias">Noticias</option>
+      </select>
+
+      <label for="title">Título del contenido:</label>
+      <input type="text" id="title" name="title" placeholder="Ej: La Revolución Francesa" required />
+
+      <label for="content">Contenido (texto):</label>
+      <textarea id="content" name="content" placeholder="Escribe o pega el texto aquí..." required></textarea>
+
+      <button type="submit">Subir contenido</button>
+    </form>
+  </section>
+</main>
+
+<footer>
+  &copy; 2024 Explora Conocimiento. Diseño futurista y experiencia acogedora.
+</footer>
+
+<script>
+  // Variables para la navegación
+  const navLinks = document.querySelectorAll('nav a');
+  const sections = document.querySelectorAll('.content-section');
+
+  function setActiveSection(sectionName) {
+    sections.forEach(section => {
+      section.style.display = section.dataset.section === sectionName ? 'block' : 'none';
+    });
+    navLinks.forEach(link => {
+      link.classList.toggle('active', link.dataset.section === sectionName);
+    });
+  }
+
+  navLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const sectionName = link.dataset.section;
+      setActiveSection(sectionName);
+      history.pushState(null, '', `#${sectionName}`);
+    });
+  });
+
+  // Mostrar la sección según el hash o por defecto 'historia'
+  let initialSection = window.location.hash.substring(1);
+  if (!initialSection || !['historia','arte','espacio','climatologia','noticias','subir'].includes(initialSection)) {
+    initialSection = 'historia';
+  }
+  setActiveSection(initialSection);
+
+  // Guardar y cargar contenidos desde localStorage
+  const STORAGE_KEY = 'explora_conocimiento_data';
+
+  function loadContentFromStorage() {
+    const dataStr = localStorage.getItem(STORAGE_KEY);
+    if (!dataStr) return {};
+    try {
+      return JSON.parse(dataStr);
+    } catch (e) {
+      console.warn('Error al parsear datos guardados', e);
+      return {};
+    }
+  }
+
+  function saveContentToStorage(data) {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+  }
+
+  function addContentCard(category, title, content) {
+    const container = document.getElementById(category + '-list');
+    if (!container) return;
+
+    const card = document.createElement('div');
+    card.className = 'card';
+    const safeTitle = escapeHtml(title);
+    const safeContent = escapeHtml(content);
+
+    card.innerHTML = `
+      <h3>${safeTitle}</h3>
+      <p>${safeContent}</p>
+    `;
+    container.prepend(card); // Añadir al inicio
+  }
+
+  function escapeHtml(text) {
+    const div = document.createElement('div');
+    div.textContent = text;
+    return div.innerHTML;
+  }
+
+  function renderAllContent() {
+    const data = loadContentFromStorage();
+    ['historia','arte','espacio','climatologia','noticias'].forEach(cat => {
+      const container = document.getElementById(cat + '-list');
+      container.innerHTML = '';
+      if (data[cat]) {
+        data[cat].forEach(entry => {
+          addContentCard(cat, entry.title, entry.content);
+        });
+      }
+    });
+  }
+
+  // On form submit
+  const form = document.getElementById('upload-form');
+  form.addEventListener('submit', e => {
+    e.preventDefault();
+
+    const category = form.category.value;
+    const title = form.title.value.trim();
+    const content = form.content.value.trim();
+
+    if (!category || !title || !content) {
+      alert('Por favor, rellena todos los campos.');
+      return;
+    }
+
+    let data = loadContentFromStorage();
+    if (!data[category]) data[category] = [];
+
+    data[category].unshift({ title, content });
+    saveContentToStorage(data);
+
+    form.reset();
+    alert('Contenido subido con éxito.');
+
+    // Actualizar la vista si el usuario está viendo la categoría cargada
+    if (document.querySelector('.nav-link.active').dataset.section === category) {
+      renderAllContent();
+    }
+  });
+
+  // Inicializar la visualización de contenido
+  renderAllContent();
+
+</script>
+
+</body>
+</html>
+
